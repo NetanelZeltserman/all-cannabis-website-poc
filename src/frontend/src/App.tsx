@@ -1,16 +1,16 @@
-import FeaturedProducts from './sections/featured-products'
-import FeaturesSection from './sections/features'
-import HeroSection from './sections/hero-section'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/home';
 
 function App() {
-
   return (
-    <div className='flex flex-col justify-center items-center'>
-      <HeroSection />
-      <FeaturesSection />
-      <FeaturedProducts />
-    </div>
-  )
+    <Router>
+      <div className='flex flex-col justify-center items-center'>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
