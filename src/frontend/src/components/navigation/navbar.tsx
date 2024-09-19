@@ -39,8 +39,8 @@ export default function Navbar() {
         <div className="flex items-center justify-center order-2 md:order-3 flex-grow md:flex-grow-0">
           <Link to="/">
             <img
-              src="img/jenny-medical-weed-reseller-text-logo.svg"
-              alt="Jane"
+              src="img/jenny-medical-weed-reseller-text-logo.png"
+              alt="Jenny logo"
               className="h-10"
             />
           </Link>
