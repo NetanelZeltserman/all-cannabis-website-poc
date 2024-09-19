@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <nav dir='ltr' className="bg-white shadow-md p-4">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
-        <div className="hidden md:flex items-center order-3 md:order-1 space-x-4">
+        <div className="hidden md:flex items-center order-3 md:order-1 space-x-8">
           {userLinks.map(({ icon: Icon, text }, index) => (
             <div key={index} className="flex items-center group">
               <Icon className="text-2xl text-gray-800 group-hover:text-green-700 group-hover:cursor-pointer transition duration-300" />
@@ -47,7 +47,7 @@ export default function Navbar() {
         </div>
 
         <div className={`${isMenuOpen ? 'block' : 'hidden'} md:flex flex-col md:flex-row items-center w-full md:w-auto mt-4 md:mt-0 order-4 md:order-2`}>
-          <div className='md:mr-8 space-y-2 md:space-y-0 md:space-x-4 flex flex-col md:flex-row items-center'>
+          <div className='md:mr-8 space-y-2 md:space-y-0 md:space-x-8 flex flex-col md:flex-row items-center'>
             {navLinks.map(({ href, text }, index) => (
               <a key={index} href={href} className="text-lg text-gray-800 hover:text-green-700 font-medium transition duration-300">{text}</a>
             ))}
