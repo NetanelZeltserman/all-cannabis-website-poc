@@ -9,10 +9,10 @@ const http = (
     })
 )
 
-const isDebug = true;
+const isDebug = false;
 
 const API_PROTOCOL = isDebug ? 'http' : 'https'
-const API_DOMAIN = isDebug ? 'localhost:8000' : 'api.example.com'
+const API_DOMAIN = isDebug ? 'localhost:8000' : 'api-jenny-cannabis.blame-nati.com'
 
 export const API_URL = `${API_PROTOCOL}://${API_DOMAIN}`;
 
