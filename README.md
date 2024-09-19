@@ -96,10 +96,6 @@ Make sure to set up the following environment variables for the backend:
 - `DB_HOST`: Database host
 - `DB_PORT`: Database port
 
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
