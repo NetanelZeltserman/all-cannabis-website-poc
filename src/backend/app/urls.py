@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views.products.get_featured import GetFeaturedProducts
 
 urlpatterns = [
-    path('hello/', views.hello_world, name='hello_world'),
+    path('products/featured/', GetFeaturedProducts.as_view(), name='get_featured_products'),
 ]
