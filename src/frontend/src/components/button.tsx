@@ -1,7 +1,7 @@
 import { Button as MuiButton, ButtonProps as MuiButtonProps } from '@mui/material';
 import { styled, lighten } from '@mui/material/styles';
 
-type ButtonVariant = 'primary' | 'secondary';
+type ButtonVariant = 'primary' | 'secondary' | 'primary-outline';
 
 interface ButtonProps extends Omit<MuiButtonProps, 'variant'> {
   buttonVariant: ButtonVariant;
@@ -22,7 +22,7 @@ const StyledButton = styled(MuiButton)<{ buttonVariant: ButtonVariant }>(
     '&:focus': {
       outline: 'none',
       boxShadow: `0 0 0 4px ${lighten(
-        theme.palette[buttonVariant === 'primary' ? 'success' : 'secondary'].main,
+        theme.palette[buttonVariant === 'secondary' ? 'secondary' : 'success'].main,
         0.6
       )}`,
     },
@@ -38,6 +38,14 @@ const StyledButton = styled(MuiButton)<{ buttonVariant: ButtonVariant }>(
       color: theme.palette.secondary.main,
       '&:hover': {
         backgroundColor: theme.palette.secondary.dark,
+        color: theme.palette.common.white,
+      },
+    }),
+    ...(buttonVariant === 'primary-outline' && {
+      border: `1.5px solid ${theme.palette.success.main}`,
+      color: theme.palette.success.main,
+      '&:hover': {
+        backgroundColor: theme.palette.success.main,
         color: theme.palette.common.white,
       },
     }),
