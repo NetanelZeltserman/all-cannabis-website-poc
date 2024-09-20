@@ -1,7 +1,8 @@
-import Button from "../button";
-import { ProductCardProps } from "./product";
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-import ReactCountryFlag from "react-country-flag";
+import ProductFeatures from "./product-features";
+import ProductDetails from "./product-details";
+import { ProductCardProps } from "./product";
+import Button from "../button";
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
@@ -15,42 +16,31 @@ export default function ProductCard({ product }: ProductCardProps) {
           />
         </div>
         <div className="p-6 bg-white">
-          <div className="flex justify-end space-x-2 my-2">
-            {product.features.map((feature) => (
-              <span
-                key={feature.id}
-                className="px-3 py-1 text-sm rounded-full text-white"
-                style={{ backgroundColor: feature.color }}
-              >
-                {feature.name}
-              </span>
-            ))}
-          </div>
+          <ProductFeatures features={product.features} />
           <h3 className="text-2xl font-medium text-right">{product.name}</h3>
-          <div className="flex justify-between items-center mt-2">
-            <span className="text-gray-600 flex items-center">
-              <ReactCountryFlag countryCode={product.country.code} svg className="mr-2 rounded-full w-4 h-4" />
-              {product.country.name}
-            </span>
-            <span className="text-lg text-gray-600">
-              {product.priceRange}
-            </span>
-          </div>
-          <div className="flex justify-between items-center mt-1">
-            <span className="text-gray-600">CBD {product.cbdRange}</span>
-            <span className="text-gray-600">THC {product.thcRange}</span>
-          </div>
-          <div className="mt-4">
-            <Button 
-              buttonVariant="primary-outline" 
-              className="w-full group-hover:bg-cannabisGreen-500 group-hover:text-white transition-colors duration-300"
-            >
-              <KeyboardArrowLeftIcon className="mr-2" />
-              עמוד מוצר
-            </Button>
-          </div>
+          <ProductDetails
+            country={product.country}
+            priceRange={product.priceRange}
+            cbdRange={product.cbdRange}
+            thcRange={product.thcRange}
+          />
+          <ProductButton />
         </div>
       </div>
+    </div>
+  );
+}
+
+function ProductButton() {
+  return (
+    <div className="mt-4">
+      <Button 
+        buttonVariant="primary-outline" 
+        className="w-full group-hover:bg-cannabisGreen-500 group-hover:text-white transition-colors duration-300"
+      >
+        <KeyboardArrowLeftIcon className="mr-2" />
+        עמוד מוצר
+      </Button>
     </div>
   );
 }
