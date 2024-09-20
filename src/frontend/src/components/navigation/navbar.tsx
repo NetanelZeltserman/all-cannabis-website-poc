@@ -6,15 +6,15 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "#", text: "הסל הזול" },
-    { href: "#", text: "ביקורות" },
-    { href: "#", text: "בתי מרקחת" },
-    { href: "#", text: "מוצרים" },
+    { to: "#", text: "הסל הזול" },
+    { to: "#", text: "ביקורות" },
+    { to: "#", text: "בתי מרקחת" },
+    { to: "#", text: "מוצרים" },
   ];
 
   const userLinks = [
-    { icon: FaUser, text: "החשבון שלי" },
-    { icon: FaShoppingCart, text: "הסל שלי" },
+    { to: "#", icon: FaUser, text: "החשבון שלי" },
+    { to: "#", icon: FaShoppingCart, text: "הסל שלי" },
   ];
 
   return (
@@ -24,7 +24,7 @@ export default function Navbar() {
           {userLinks.map(({ icon: Icon, text }, index) => (
             <div key={index} className="flex items-center group">
               <Icon className="text-2xl text-gray-800 group-hover:text-green-700 group-hover:cursor-pointer transition duration-300" />
-              <a href="#" className="ml-2 text-lg text-gray-800 font-medium group-hover:text-green-700 transition duration-300">{text}</a>
+              <Link to="#" className="ml-2 text-lg text-gray-800 font-medium group-hover:text-green-700 transition duration-300">{text}</Link>
             </div>
           ))}
         </div>
@@ -48,16 +48,16 @@ export default function Navbar() {
 
         <div className={`${isMenuOpen ? 'block' : 'hidden'} md:flex flex-col md:flex-row items-center w-full md:w-auto mt-4 md:mt-0 order-4 md:order-2`}>
           <div className='md:mr-8 space-y-2 md:space-y-0 md:space-x-8 flex flex-col md:flex-row items-center'>
-            {navLinks.map(({ href, text }, index) => (
-              <a key={index} href={href} className="text-lg text-gray-800 hover:text-green-700 font-medium transition duration-300">{text}</a>
+            {navLinks.map(({ to, text }, index) => (
+              <Link key={index} to={to} className="text-lg text-gray-800 hover:text-green-700 font-medium transition duration-300">{text}</Link>
             ))}
           </div>
 
           <div className="flex md:hidden flex-col items-center space-y-4 mt-4 w-full">
-            {userLinks.map(({ icon: Icon, text }, index) => (
+            {userLinks.map(({ to, icon: Icon, text }, index) => (
               <div key={index} className="flex items-center justify-center w-full group">
                 <Icon className="text-2xl text-gray-800 group-hover:text-green-700 group-hover:cursor-pointer transition duration-300" />
-                <a href="#" className="ml-2 text-lg text-gray-800 font-medium group-hover:text-green-700 transition duration-300">{text}</a>
+                <Link to={to} className="ml-2 text-lg text-gray-800 font-medium group-hover:text-green-700 transition duration-300">{text}</Link>
               </div>
             ))}
           </div>
