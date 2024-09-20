@@ -6,7 +6,7 @@ const guideUrl = `https://www.xn--4dbcyzi5a.com/${encodeURIComponent('פרח-ר�
 export default function ProductSelectionGuideBanner() {
     return (
       <div className="w-full relative">
-        <div className="absolute inset-0 bg-[url('img/cannabis-banner.jpg')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 bg-[url('/img/cannabis-banner.jpg')] bg-cover bg-center"></div>
         <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="relative z-10 text-white p-8">
           <div className="flex flex-col items-center justify-center">
