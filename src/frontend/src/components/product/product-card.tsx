@@ -29,7 +29,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <h3 className="text-2xl font-medium text-right">{product.name}</h3>
           <div className="flex justify-between items-center mt-2">
             <span className="text-gray-600 flex items-center">
-              <ReactCountryFlag countryCode={product.country.code} svg className="mr-2 rounded-full" style={{ width: '1em', height: '1em' }} />
+              <ReactCountryFlag countryCode={product.country.code} svg className="mr-2 rounded-full w-4 h-4" />
               {product.country.name}
             </span>
             <span className="text-lg text-gray-600">
