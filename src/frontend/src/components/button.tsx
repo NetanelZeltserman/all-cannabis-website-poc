@@ -1,25 +1,58 @@
-import { ButtonHTMLAttributes } from 'react';
+import { Button as MuiButton, ButtonProps as MuiButtonProps } from '@mui/material';
+import { styled, lighten } from '@mui/material/styles';
 
 type ButtonVariant = 'primary' | 'secondary';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant: ButtonVariant;
+interface ButtonProps extends Omit<MuiButtonProps, 'variant'> {
+  buttonVariant: ButtonVariant;
 }
 
-export default function Button({ variant, onClick, children, className, ...props }: ButtonProps) {
-  const baseClasses = "text-lg rounded-full md:text-2xl py-3 px-8 mt-10 transition duration-300 ease-in-out";
-  const variantClasses = {
-    primary: "bg-accentLight hover:bg-accentLightDark text-white ring-2 ring-accentLight hover:ring-accentLightDark focus:ring-4 focus:ring-accentLight/50",
-    secondary: "border-2 border-secondary hover:bg-secondary-dark text-secondary hover:text-white hover:ring-2 hover:ring-secondary-dark focus:ring-4 focus:ring-secondary/50",
-  };
+const StyledButton = styled(MuiButton)<{ buttonVariant: ButtonVariant }>(
+  ({ theme, buttonVariant }) => ({
+    borderRadius: '9999px',
+    padding: theme.spacing(1, 3),
+    fontSize: '1rem',
+    [theme.breakpoints.up('md')]: {
+      fontSize: '1.25rem',
+    },
+    transition: theme.transitions.create(
+      ['background-color', 'box-shadow', 'border-color', 'color'],
+      { duration: theme.transitions.duration.short }
+    ),
+    '&:focus': {
+      outline: 'none',
+      boxShadow: `0 0 0 4px ${lighten(
+        theme.palette[buttonVariant === 'primary' ? 'success' : 'secondary'].main,
+        0.6
+      )}`,
+    },
+    ...(buttonVariant === 'primary' && {
+      backgroundColor: theme.palette.success.main,
+      color: theme.palette.common.white,
+      '&:hover': {
+        backgroundColor: theme.palette.success.dark,
+      },
+    }),
+    ...(buttonVariant === 'secondary' && {
+      border: `1.5px solid ${theme.palette.secondary.main}`,
+      color: theme.palette.secondary.main,
+      '&:hover': {
+        backgroundColor: theme.palette.secondary.dark,
+        color: theme.palette.common.white,
+      },
+    }),
+  })
+);
 
+export default function Button({ buttonVariant, onClick, children, ...props }: ButtonProps) {
   return (
-    <button
-      className={`${baseClasses} ${variantClasses[variant]} ${className || ''}`}
+    <StyledButton
+      buttonVariant={buttonVariant}
       onClick={onClick}
+      variant={buttonVariant === 'primary' ? 'contained' : 'outlined'}
       {...props}
     >
       {children}
-    </button>
+    </StyledButton>
   );
 }

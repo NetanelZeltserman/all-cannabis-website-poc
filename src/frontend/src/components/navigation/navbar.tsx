@@ -9,7 +9,7 @@ export default function Navbar() {
     { to: "#", text: "הסל הזול" },
     { to: "#", text: "ביקורות" },
     { to: "#", text: "בתי מרקחת" },
-    { to: "#", text: "מוצרים" },
+    { to: "/products", text: "מוצרים" },
   ];
 
   const userLinks = [
