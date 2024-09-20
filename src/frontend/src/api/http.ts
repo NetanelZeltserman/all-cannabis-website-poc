@@ -9,7 +9,7 @@ const http = (
     })
 )
 
-const isDebug = false;
+const isDebug = import.meta.env.VITE_DEBUG === 'true';
 
 const API_PROTOCOL = isDebug ? 'http' : 'https'
 const API_DOMAIN = isDebug ? 'localhost:8000' : 'api-jenny-cannabis.blame-nati.com'
