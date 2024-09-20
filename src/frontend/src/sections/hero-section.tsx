@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../components/button";
 
 export default function HeroSection() {
@@ -7,7 +8,9 @@ export default function HeroSection() {
             <p className="text-4xl font-medium md:text-7xl bg-gradient-to-r from-cannabisGreen-400 to-cannabisGreen-500 text-transparent bg-clip-text">קנאביס רפואי</p>
             <p className="text-4xl font-medium text-cannabisGreen-500 md:text-7xl">איפה, בכמה, מתי?</p>
             <div className="mt-8 space-y-2 md:space-y-0 md:space-x-4 md:rtl:space-x-reverse">
-                <Button buttonVariant="primary">גלה ממש פה!</Button>
+                <Link to="/products">
+                  <Button buttonVariant="primary">גלה ממש פה!</Button>
+                </Link>
                 <Button buttonVariant="secondary">ספר לי עוד</Button>
             </div>
         </div>
