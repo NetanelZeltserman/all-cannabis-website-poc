@@ -1,6 +1,7 @@
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import ProductFeatures from "../components/product/product-features";
 import ProductDetails from "../components/product/product-details";
+import RelatedProducts from '../sections/related-products';
 import { Product } from '../components/product/product';
 import getProduct from '../api/product/product';
 import { useParams } from 'react-router-dom';
@@ -28,12 +29,15 @@ export default function ProductDetailsPage() {
   }
 
   return (
-    <div className="container max-w-screen-lg mx-auto px-4 py-8 sm:py-12 md:py-16 lg:py-20">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-        <ProductImage image={product.image} name={product.name} />
-        <ProductInfo product={product} />
-      </div>
-    </div>
+    <>
+        <div className="container max-w-screen-lg mx-auto px-4 py-8 sm:py-12 md:py-16 lg:py-20">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+                    <ProductImage image={product.image} name={product.name} />
+                    <ProductInfo product={product} />
+                </div>
+            </div>
+        <RelatedProducts productSlug={product.slug} />
+    </>
   );
 }
 
