@@ -1,4 +1,5 @@
 import { Pagination as MuiPagination } from '@mui/material';
+import { styled, alpha } from '@mui/material/styles';
 
 type Props = {
   currentPage: number;
@@ -6,17 +7,37 @@ type Props = {
   onPageChange: (page: number) => void;
 }
 
-export default function Pagination({ currentPage, totalPages, onPageChange }: Props) {
-  const handleChange = (_: React.ChangeEvent<unknown>, value: number) => {
-    onPageChange(value);
+const StyledPagination = styled(MuiPagination)(({ theme }) => ({
+  '& .MuiPaginationItem-root': {
+    backgroundColor: alpha(theme.palette.primary.main, 0.1),
+    '&:hover': {
+      backgroundColor: alpha(theme.palette.primary.dark, 0.2),
+    },
+  },
+  '& .Mui-selected': {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
+    '&:hover': {
+      backgroundColor: theme.palette.primary.dark,
+    },
+  },
+}));
+
+export default function Pagination({
+  currentPage, 
+  totalPages, 
+  onPageChange 
+}: Props) {
+  const handlePageChange = (_: React.ChangeEvent<unknown>, newPage: number) => {
+    onPageChange(newPage);
   };
 
   return (
     <div className="mt-8 flex justify-center">
-      <MuiPagination
+      <StyledPagination
         count={totalPages}
         page={currentPage}
-        onChange={handleChange}
+        onChange={handlePageChange}
         color="primary"
         size="large"
       />
