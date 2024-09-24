@@ -79,10 +79,6 @@ The frontend will be available at `http://localhost:5173`.
 
 The backend API will be available at `http://localhost:8000`.
 
-## API Endpoints
-
-- Featured Products: `GET /api/products/featured/`
-
 ## Environment Variables
 
 Make sure to set up the following environment variables for the backend:
